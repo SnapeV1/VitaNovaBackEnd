@@ -1,37 +1,84 @@
-# VitaNova - Revolutionary Wellness Platform
 
-## Overview
-VitaNova is a revolutionary wellness platform designed to address the gaps in existing national health and wellness offerings. Built using Angular and Spring frameworks, VitaNova provides a comprehensive suite of features aimed at improving user health, fitness, and overall well-being.
+# VitaNova Backend
 
-## Features
+This is the backend service for the VitaNova project – an AI-driven e-Commerce platform built with Spring Boot and MySQL using a microservices architecture.
 
-### Multi-Layered Security
-VitaNova prioritizes the security of user accounts through a multi-layered login system, which includes:
-- Robust authentication mechanisms
-- Login attempts monitoring
-- IP address verification
-- Email and phone verification
+## ⚙️ Tech Stack
 
-### Food Tracker
-Empowers users to monitor their nutritional intake, including tracking calories and other relevant nutritional information. This feature helps users maintain a balanced diet and achieve their health goals.
+- **Framework:** Spring Boot
+- **Database:** MySQL
+- **Authentication:** JWT, OAuth 2.0
+- **Real-time Communication:** WebSocket
+- **External APIs:** Spotify API, Google Maps API
+- **Build Tool:** Maven
 
-### AI-Powered Workout Suggestions
-Provides personalized workout program recommendations tailored to individual goals and fitness levels. Our AI-driven system ensures that users receive the most effective and appropriate exercise routines.
+## 🧩 Microservices Overview
 
-### End-to-End Messaging with WebSockets
-Ensures the privacy and security of user communications through end-to-end messaging. Utilizing WebSockets, this feature guarantees real-time, secure interactions between users.
+- **User Service** – Handles user registration, login, and profile management
+- **Product Service** – Manages product catalog
+- **Inventory Service** – Tracks real-time stock levels
+- **Auth Service** – JWT and OAuth2-based authentication and authorization
+- **Nutrition/Health Service** – Scans food and tracks calories
 
-### Online Marketplace
-VitaNova's marketplace boasts over 1,000 health-related products and services, ranging from fitness equipment to organic groceries. This extensive selection allows users to find everything they need for a healthier lifestyle.
+## 🚀 How to Run
 
-### Integrated Spotify
-Allows users to enjoy music while working out. The integration with Spotify enhances the user experience by providing motivational and enjoyable music during exercise sessions.
+### 1. Clone the Repository
 
-## Getting Started
+```bash
+git clone https://github.com/SnapeV1/VitaNovaBackEnd.git
+cd vitanova-backend
+```
 
-### Prerequisites
-- Node.js
-- Angular CLI
-- Java Development Kit (JDK)
-- Spring Framework
+### 2. Configure Application Properties
 
+Update the `src/main/resources/application.properties` file with your local configuration:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/vitanova
+spring.datasource.username=yourUsername
+spring.datasource.password=yourPassword
+
+# Security
+jwt.secret=yourJWTSecret
+
+# External APIs
+spotify.api.key=yourSpotifyAPIKey
+google.maps.api.key=yourGoogleMapsAPIKey
+```
+
+### 3. Start MySQL Server
+
+Ensure your MySQL server is running and has a database named `vitanova`.
+
+```sql
+CREATE DATABASE vitanova;
+```
+
+### 4. Build and Run the Application
+
+```bash
+./mvnw clean install
+./mvnw spring-boot:run
+```
+
+The backend will start on [http://localhost:8080](http://localhost:8080).
+
+---
+
+## 🧪 Testing
+
+You can test the REST APIs using Postman or any HTTP client. Swagger documentation can be added for easier API exploration.
+
+## 📦 Packaging
+
+To package the application into a `.jar` file:
+
+```bash
+./mvnw clean package
+```
+
+The generated JAR will be located in the `target/` directory.
+
+## 📄 License
+
+This project is licensed under the MIT License.
