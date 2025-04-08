@@ -26,7 +26,7 @@ This is the backend service for the VitaNova project – an AI-driven e-Commerce
 
 ```bash
 git clone https://github.com/SnapeV1/VitaNovaBackEnd.git
-cd vitanova-backend
+cd VitaNovaBackEnd
 ```
 
 ### 2. Configure Application Properties
